@@ -7,82 +7,107 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="progress-bar"></div>
+
     <header>
         <div class="container header-container">
-            <h1 class="logo">Meu blog <span>tech</span></h1>
-            <nav>
+            <a href="#" class="logo">Meu blog <span>tech</span></a>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Buscar posts..." aria-label="Buscar posts">
+            </div>
+            <nav aria-label="Navegação principal">
                 <ul class="nav-links">
-                    <li><a href="#noticias" class="active">Notícias</a></li>
-                    <li><a href="#curiosidades">Curiosidades</a></li>
-                    <li><a href="#dicas">Dicas</a></li>
+                    <li><a href="#noticias" class="nav-item">Notícias</a></li>
+                    <li><a href="#curiosidades" class="nav-item">Curiosidades</a></li>
+                    <li><a href="#dicas" class="nav-item">Dicas</a></li>
                 </ul>
             </nav>
-            <button id="theme-toggle" aria-label="Alternar tema">🌓</button>
+            <button id="theme-toggle" aria-label="Alternar tema claro e escuro">🌓</button>
         </div>
     </header>
 
     <main class="container">
         <!-- Notícias -->
-        <section id="noticias">
+        <section id="noticias" class="blog-section">
             <h2 class="section-title">Últimas Notícias</h2>
             <div class="grid">
-                <article class="card animate">
-                    <div class="badge badge-news">Notícia</div>
+                <article class="card featured animate" data-category="noticias">
+                    <span class="badge badge-news">Notícia</span>
                     <h3>Inteligência Artificial avança na medicina diagnóstica</h3>
-                    <p>Novos modelos conseguem identificar anomalias em exames de imagem com precisão recorde.</p>
-                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                    <p>Novos modelos conseguem identificar anomalias em exames de imagem com precisão recorde em hospitais globais.</p>
+                    <div class="card-footer">
+                        <span class="date">Junho, 2026</span>
+                        <a href="#" class="read-more">Ler artigo &rarr;</a>
+                    </div>
                 </article>
-                <article class="card animate">
-                    <div class="badge badge-news">Notícia</div>
+                <article class="card animate" data-category="noticias">
+                    <span class="badge badge-news">Notícia</span>
                     <h3>Baterias de estado sólido chegam ao mercado</h3>
                     <p>Nova tecnologia promete dobrar a autonomia de carros elétricos e celulares nos próximos meses.</p>
-                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                    <div class="card-footer">
+                        <span class="date">Junho, 2026</span>
+                        <a href="#" class="read-more">Ler artigo &rarr;</a>
+                    </div>
                 </article>
             </div>
         </section>
 
         <!-- Curiosidades -->
-        <section id="curiosidades">
+        <section id="curiosidades" class="blog-section">
             <h2 class="section-title">Curiosidades</h2>
             <div class="grid">
-                <article class="card animate">
-                    <div class="badge badge-curio">Curiosidade</div>
-                    <h3>O primeiro bug de computador foi um inseto real</h3>
+                <article class="card animate" data-category="curiosidades">
+                    <span class="badge badge-curio">Curiosidade</span>
+                    <h3>O primeiro bug foi um inseto real</h3>
                     <p>Em 1947, Grace Hopper encontrou uma mariposa física travando os relés do computador Harvard Mark II.</p>
-                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                    <div class="card-footer">
+                        <span class="date">Maio, 2026</span>
+                        <a href="#" class="read-more">Ler artigo &rarr;</a>
+                    </div>
                 </article>
-                <article class="card animate">
-                    <div class="badge badge-curio">Curiosidade</div>
+                <article class="card animate" data-category="curiosidades">
+                    <span class="badge badge-curio">Curiosidade</span>
                     <h3>O tamanho do primeiro disco rígido</h3>
                     <p>O IBM 350 de 1956 pesava mais de uma tonelada para armazenar apenas 5 MB de dados.</p>
-                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                    <div class="card-footer">
+                        <span class="date">Maio, 2026</span>
+                        <a href="#" class="read-more">Ler artigo &rarr;</a>
+                    </div>
                 </article>
             </div>
         </section>
 
         <!-- Dicas -->
-        <section id="dicas">
+        <section id="dicas" class="blog-section">
             <h2 class="section-title">Dicas úteis</h2>
             <div class="grid">
-                <article class="card animate">
-                    <div class="badge badge-tip">Dica</div>
-                    <h3>Como proteger suas senhas de forma segura</h3>
-                    <p>Use gerenciadores de senhas confiáveis e ative a autenticação em duas etapas (2FA) em tudo.</p>
-                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                <article class="card animate" data-category="dicas">
+                    <span class="badge badge-tip">Dica</span>
+                    <h3>Proteger senhas de forma segura</h3>
+                    <p>Use gerenciadores de senhas confiáveis e ative a autenticação em duas etapas (2FA) em suas contas.</p>
+                    <div class="card-footer">
+                        <span class="date">Abril, 2026</span>
+                        <a href="#" class="read-more">Ler artigo &rarr;</a>
+                    </div>
                 </article>
-                <article class="card animate">
-                    <div class="badge badge-tip">Dica</div>
-                    <h3>Atalhos que salvam tempo no Windows e Mac</h3>
-                    <p>Domine o uso de comandos rápidos para alternar janelas e reabrir abas fechadas por engano.</p>
-                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                <article class="card featured animate" data-category="dicas">
+                    <span class="badge badge-tip">Dica</span>
+                    <h3>Atalhos que salvam tempo no computador</h3>
+                    <p>Domine o uso de comandos rápidos para alternar janelas e reabrir abas fechadas por engano no navegador.</p>
+                    <div class="card-footer">
+                        <span class="date">Março, 2026</span>
+                        <a href="#" class="read-more">Ler artigo &rarr;</a>
+                    </div>
                 </article>
             </div>
         </section>
+        
+        <div id="no-results" class="hidden">Nenhum post encontrado para a sua busca.</div>
     </main>
 
     <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 Meu blog tech. Todos os direitos reservados.</p>
+        <div class="container">
+            <p>&copy; 2026 Meu blog tech. Feito para entusiastas de tecnologia.</p>
         </div>
     </footer>
 
