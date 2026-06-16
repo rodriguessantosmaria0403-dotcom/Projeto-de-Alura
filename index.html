@@ -1,13 +1,91 @@
 <!DOCTYPE html>
-
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu blog tech | Notícias, Curiosidades e Dicas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Meu blog tech</h1>
-<p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
+    <header>
+        <div class="container header-container">
+            <h1 class="logo">Meu blog <span>tech</span></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#noticias" class="active">Notícias</a></li>
+                    <li><a href="#curiosidades">Curiosidades</a></li>
+                    <li><a href="#dicas">Dicas</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" aria-label="Alternar tema">🌓</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Notícias -->
+        <section id="noticias">
+            <h2 class="section-title">Últimas Notícias</h2>
+            <div class="grid">
+                <article class="card animate">
+                    <div class="badge badge-news">Notícia</div>
+                    <h3>Inteligência Artificial avança na medicina diagnóstica</h3>
+                    <p>Novos modelos conseguem identificar anomalias em exames de imagem com precisão recorde.</p>
+                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                </article>
+                <article class="card animate">
+                    <div class="badge badge-news">Notícia</div>
+                    <h3>Baterias de estado sólido chegam ao mercado</h3>
+                    <p>Nova tecnologia promete dobrar a autonomia de carros elétricos e celulares nos próximos meses.</p>
+                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Curiosidades -->
+        <section id="curiosidades">
+            <h2 class="section-title">Curiosidades</h2>
+            <div class="grid">
+                <article class="card animate">
+                    <div class="badge badge-curio">Curiosidade</div>
+                    <h3>O primeiro bug de computador foi um inseto real</h3>
+                    <p>Em 1947, Grace Hopper encontrou uma mariposa física travando os relés do computador Harvard Mark II.</p>
+                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                </article>
+                <article class="card animate">
+                    <div class="badge badge-curio">Curiosidade</div>
+                    <h3>O tamanho do primeiro disco rígido</h3>
+                    <p>O IBM 350 de 1956 pesava mais de uma tonelada para armazenar apenas 5 MB de dados.</p>
+                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Dicas -->
+        <section id="dicas">
+            <h2 class="section-title">Dicas úteis</h2>
+            <div class="grid">
+                <article class="card animate">
+                    <div class="badge badge-tip">Dica</div>
+                    <h3>Como proteger suas senhas de forma segura</h3>
+                    <p>Use gerenciadores de senhas confiáveis e ative a autenticação em duas etapas (2FA) em tudo.</p>
+                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                </article>
+                <article class="card animate">
+                    <div class="badge badge-tip">Dica</div>
+                    <h3>Atalhos que salvam tempo no Windows e Mac</h3>
+                    <p>Domine o uso de comandos rápidos para alternar janelas e reabrir abas fechadas por engano.</p>
+                    <a href="#" class="read-more">Ler mais &rarr;</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Meu blog tech. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
