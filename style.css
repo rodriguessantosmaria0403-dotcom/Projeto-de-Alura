@@ -1,71 +1,371 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Inicialização de seletores
-    const themeToggle = document.getElementById('theme-toggle');
-    const alertBtn = document.getElementById('alert-btn');
+/* ==========================================================================
+   1. VARIÁVEIS DE SISTEMA E TEMAS (Design Tokens)
+   ========================================================================== */
+:root {
+    --bg-color: #fbfaf7;         /* Tom de papel jornal elegante */
+    --text-color: #121212;       /* Preto de alto contraste para leitura */
+    --accent-color: #900000;     /* Vermelho escuro editorial clássico */
+    --card-bg: #ffffff;          /* Fundo dos cartões em branco puro */
+    --border-color: #e3ded8;     /* Linhas sutis inspiradas em jornais antigos */
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', Helvetica, Arial, sans-serif;
+}
 
-    // 1. Gerenciamento do Tema (Escuro / Claro) com Persistência
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.setAttribute('data-theme', 'dark');
-        themeToggle.textContent = 'Modo Claro';
-    }
+[data-theme="dark"] {
+    --bg-color: #0b0b0b;         /* Fundo escuro profundo */
+    --text-color: #e2e2e2;       /* Texto claro suave para os olhos */
+    --accent-color: #ff3b3b;     /* Vermelho vibrante para modo escuro */
+    --card-bg: #141414;          /* Cartões em cinza escuro */
+    --border-color: #242424;     /* Divisores escuros */
+}
 
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.body.getAttribute('data-theme') === 'dark';
-        
-        if (isDark) {
-            document.body.removeAttribute('data-theme');
-            themeToggle.textContent = 'Modo Escuro';
-            localStorage.setItem('theme', 'light');
-        } else {
-            document.body.setAttribute('data-theme', 'dark');
-            themeToggle.textContent = 'Modo Claro';
-            localStorage.setItem('theme', 'dark');
-        }
-    });
+/* ==========================================================================
+   2. CONFIGURAÇÕES BASE E RESET
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    // 2. Criação Dinâmica do Modal de Alerta Editorial
-    const createModal = () => {
-        // Cria os elementos do DOM
-        const overlay = document.createElement('div');
-        overlay.classList.add('modal-overlay');
-        overlay.id = 'custom-modal';
+body {
+    font-family: var(--font-serif);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+    font-size: 1.2rem;
+    transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-top: 4px; /* Espaço para a barra de progresso do JS */
+}
 
-        overlay.innerHTML = `
-            <div class="modal-box">
-                <h4>ALERTA HUMANITÁRIO (JULHO DE 2026)</h4>
-                <p>De acordo com novos dados consolidados pelas agências internacionais, as restrições sistêmicas impostas às mulheres afegãs resultaram no maior isolamento de gênero reportado globalmente neste século. O apoio internacional através de canais descentralizados de educação digital segue sendo a principal rota de escape educacional.</p>
-                <button class="modal-close">Fechar Mensagem</button>
-            </div>
-        `;
+/* ==========================================================================
+   3. CABEÇALHO (Header)
+   ========================================================================== */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+    border-bottom: 2px solid var(--text-color);
+    font-family: var(--font-sans);
+}
 
-        document.body.appendChild(overlay);
+.logo {
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
 
-        // Eventos para fechar o modal
-        const closeBtn = overlay.querySelector('.modal-close');
-        closeBtn.addEventListener('click', closeModal);
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) closeModal();
-        });
-    };
+#theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.5rem 1.2rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
 
-    const openModal = () => {
-        let modal = document.getElementById('custom-modal');
-        if (!modal) {
-            createModal();
-            modal = document.getElementById('custom-modal');
-        }
-        // Pequeno atraso para garantir o gatilho da transição CSS
-        setTimeout(() => modal.classList.add('active'), 10);
-    };
+#theme-toggle:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+}
 
-    const closeModal = () => {
-        const modal = document.getElementById('custom-modal');
-        if (modal) {
-            modal.classList.remove('active');
-        }
-    };
+/* ==========================================================================
+   4. ESTRUTURA E ELEMENTOS DA REPORTAGEM
+   ========================================================================== */
+.reportage {
+    max-width: 680px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
 
-    // Associa a abertura do novo modal ao botão da reportagem
-    alertBtn.addEventListener('click', openModal);
-});
+.category {
+    font-family: var(--font-sans);
+    color: var(--accent-color);
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 1.2rem;
+}
+
+h1 {
+    font-size: 2.8rem;
+    line-height: 1.15;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 1.35rem;
+    color: #444444;
+    line-height: 1.5;
+    margin-bottom: 2.5rem;
+    font-style: italic;
+}
+
+[data-theme="dark"] .subtitle {
+    color: #ababab;
+}
+
+.meta {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: #666666;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+}
+
+/* Imagens e Mídia */
+.hero-image {
+    margin: 3rem 0;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 380px;
+    background-color: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-style: italic;
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    font-size: 1rem;
+    color: #777777;
+}
+
+.caption {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: #666666;
+    margin-top: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Tipografia Avançada */
+.dropcap {
+    float: left;
+    font-size: 5rem;
+    line-height: 0.75;
+    padding: 0.4rem 0.8rem 0 0;
+    color: var(--accent-color);
+    font-weight: 900;
+}
+
+.paragraph {
+    margin-bottom: 1.8rem;
+    text-align: justify;
+}
+
+h2 {
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 3.5rem 0 1.2rem 0;
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+}
+
+blockquote {
+    border-left: 3px solid var(--accent-color);
+    margin: 3.5rem 0;
+    padding-left: 2rem;
+    font-style: italic;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+cite {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-style: normal;
+    color: #666666;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   5. PAINEL DE DADOS INTERATIVO
+   ========================================================================== */
+.interactive-panel {
+    background-color: var(--card-bg);
+    padding: 3rem 2rem;
+    margin: 5rem 0;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.interactive-panel h3 {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2.5rem;
+}
+
+.metrics {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-around;
+    margin-bottom: 2.5rem;
+}
+
+.card {
+    flex: 1;
+    padding: 2rem 1rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+}
+
+.card .number, .card .text-stat {
+    font-family: var(--font-sans);
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 0.8rem;
+    letter-spacing: -1px;
+}
+
+.card .text-stat {
+    font-size: 1.6rem;
+    letter-spacing: 0;
+    padding-top: 0.6rem;
+}
+
+.card p {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555555;
+    line-height: 1.4;
+}
+
+[data-theme="dark"] .card p {
+    color: #aaaaaa;
+}
+
+#alert-btn {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#alert-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+/* ==========================================================================
+   6. SISTEMA DE MODAL EDITORIAL CUSTOMIZADO
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 3000;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    background-color: var(--card-bg);
+    padding: 3rem;
+    max-width: 520px;
+    width: 90%;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    transform: translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-box {
+    transform: translateY(0);
+}
+
+.modal-box h4 {
+    font-family: var(--font-sans);
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.2rem;
+}
+
+.modal-box p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.modal-close {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.2s ease;
+}
+
+.modal-close:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   7. RODAPÉ E MEDIA QUERIES (Responsividade)
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 4rem 1.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: #777777;
+    border-top: 1px solid var(--border-color);
+    margin-top: 8rem;
+}
+
+@media (max-width: 650px) {
+    h1 { font-size: 2rem; }
+    .metrics { flex-direction: column; gap: 1.5rem; }
+    .image-placeholder { height: 260px; }
+    .modal-box { padding: 2rem; }
+}
