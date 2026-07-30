@@ -1,197 +1,71 @@
-/* Configurações Gerais */
-:root {
-    --bg-color: #fcfcfc;
-    --text-color: #1a1a1a;
-    --accent-color: #8b0000; /* Vermelho escuro editorial */
-    --card-bg: #f0f0f0;
-    --border-color: #ccc;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicialização de seletores
+    const themeToggle = document.getElementById('theme-toggle');
+    const alertBtn = document.getElementById('alert-btn');
 
-[data-theme="dark"] {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --accent-color: #ff4d4d;
-    --card-bg: #1e1e1e;
-    --border-color: #333;
-}
+    // 1. Gerenciamento do Tema (Escuro / Claro) com Persistência
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = 'Modo Claro';
+    }
 
-body {
-    font-family: 'Georgia', serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    transition: background 0.3s, color 0.3s;
-}
+    themeToggle.addEventListener('click', () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        
+        if (isDark) {
+            document.body.removeAttribute('data-theme');
+            themeToggle.textContent = 'Modo Escuro';
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = 'Modo Claro';
+            localStorage.setItem('theme', 'dark');
+        }
+    });
 
-/* Cabeçalho */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    border-bottom: 1px solid var(--border-color);
-    font-family: 'Arial', sans-serif;
-    letter-spacing: 1px;
-}
+    // 2. Criação Dinâmica do Modal de Alerta Editorial
+    const createModal = () => {
+        // Cria os elementos do DOM
+        const overlay = document.createElement('div');
+        overlay.classList.add('modal-overlay');
+        overlay.id = 'custom-modal';
 
-.logo {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
+        overlay.innerHTML = `
+            <div class="modal-box">
+                <h4>ALERTA HUMANITÁRIO (JULHO DE 2026)</h4>
+                <p>De acordo com novos dados consolidados pelas agências internacionais, as restrições sistêmicas impostas às mulheres afegãs resultaram no maior isolamento de gênero reportado globalmente neste século. O apoio internacional através de canais descentralizados de educação digital segue sendo a principal rota de escape educacional.</p>
+                <button class="modal-close">Fechar Mensagem</button>
+            </div>
+        `;
 
-#theme-toggle {
-    background: transparent;
-    border: 1px solid var(--text-color);
-    color: var(--text-color);
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-}
+        document.body.appendChild(overlay);
 
-/* Estrutura da Reportagem */
-.reportage {
-    max-width: 700px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
+        // Eventos para fechar o modal
+        const closeBtn = overlay.querySelector('.modal-close');
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeModal();
+        });
+    };
 
-.category {
-    font-family: 'Arial', sans-serif;
-    color: var(--accent-color);
-    font-weight: bold;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-}
+    const openModal = () => {
+        let modal = document.getElementById('custom-modal');
+        if (!modal) {
+            createModal();
+            modal = document.getElementById('custom-modal');
+        }
+        // Pequeno atraso para garantir o gatilho da transição CSS
+        setTimeout(() => modal.classList.add('active'), 10);
+    };
 
-h1 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin: 0.5rem 0 1rem 0;
-}
+    const closeModal = () => {
+        const modal = document.getElementById('custom-modal');
+        if (modal) {
+            modal.classList.remove('active');
+        }
+    };
 
-.subtitle {
-    font-size: 1.25rem;
-    color: #555;
-    margin-bottom: 1.5rem;
-}
-
-[data-theme="dark"] .subtitle {
-    color: #aaa;
-}
-
-.meta {
-    font-family: 'Arial', sans-serif;
-    font-size: 0.85rem;
-    color: #777;
-    margin-bottom: 2rem;
-}
-
-/* Imagem e Conteúdo */
-.hero-image {
-    margin: 2rem 0;
-}
-
-.image-placeholder {
-    width: 100%;
-    height: 350px;
-    background-color: var(--card-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-style: italic;
-    border: 1px solid var(--border-color);
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-.caption {
-    font-size: 0.85rem;
-    color: #666;
-    margin-top: 0.5rem;
-}
-
-.dropcap {
-    float: left;
-    font-size: 4.5rem;
-    line-height: 0.8;
-    padding-right: 8px;
-    color: var(--accent-color);
-}
-
-h2 {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.5rem;
-    margin-top: 2.5rem;
-}
-
-blockquote {
-    border-left: 4px solid var(--accent-color);
-    margin: 2rem 0;
-    padding-left: 1.5rem;
-    font-style: italic;
-    font-size: 1.2rem;
-}
-
-cite {
-    display: block;
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 0.5rem;
-}
-
-/* Painel Interativo */
-.interactive-panel {
-    background-color: var(--card-bg);
-    padding: 1.5rem;
-    margin: 3rem 0;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.metrics {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-around;
-    margin: 1.5rem 0;
-}
-
-.card {
-    flex: 1;
-    padding: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-}
-
-.card .number {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--accent-color);
-    display: block;
-}
-
-#alert-btn {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-#alert-btn:hover {
-    opacity: 0.9;
-}
-
-/* Rodapé */
-footer {
-    text-align: center;
-    padding: 2rem;
-    font-family: 'Arial', sans-serif;
-    font-size: 0.8rem;
-    border-top: 1px solid var(--border-color);
-    margin-top: 4rem;
-}
+    // Associa a abertura do novo modal ao botão da reportagem
+    alertBtn.addEventListener('click', openModal);
+});
