@@ -3,122 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu blog tech | O futuro da tecnologia hoje</title>
-    <meta name="description" content="Análises, tutoriais e as últimas novidades do mundo do desenvolvimento e inovação digital.">
-    <!-- Folha de estilos -->
+    <title>Vozes Silenciadas | Crise de Gênero no Afeganistão</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Ícones Font Awesome -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
-    <!-- Acessibilidade: Atalho para o conteúdo principal -->
-    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
-
-    <!-- Cabeçalho Principal -->
-    <header class="header">
-        <div class="container header-wrapper">
-            <a href="#" class="logo" aria-label="Meu blog tech - Página Inicial">
-                Meu blog<span>tech</span>
-            </a>
-            <nav class="nav" aria-label="Menu principal">
-                <ul>
-                    <li><a href="#" class="active">Início</a></li>
-                    <li><a href="#">Artigos</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
-            </nav>
+    <!-- Barra de Alerta Urgente -->
+    <div class="breaking-news">
+        <div class="container flex-header">
+            <span class="badge">URGENTE</span>
+            <p>Relatório da OMS alerta para colapso na saúde das mulheres afegãs devido a restrições e cortes de verbas.</p>
         </div>
+    </div>
+
+    <!-- Cabeçalho de Jornal -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="date-info" id="current-date">30 de Julho de 2026</div>
+            <h1 class="portal-logo">PORTAL<span>CONTEXTO</span></h1>
+            <div class="social-share">
+                <button id="dark-mode-toggle" aria-label="Mudar modo de leitura"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="container">
+                <ul>
+                    <li><a href="#" class="active">Especial Afeganistão</a></li>
+                    <li><a href="#">Direitos Humanos</a></li>
+                    <li><a href="#">Relatórios ONU</a></li>
+                    <li><a href="#">Análises</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <!-- Seção de Destaque -->
-    <section class="hero" aria-labelledby="hero-title">
-        <div class="container">
-            <h2 id="hero-title">O futuro da tecnologia hoje</h2>
-            <p>Análises, tutoriais e as últimas novidades do mundo do desenvolvimento e inovação.</p>
-        </div>
-    </section>
-
-    <!-- Conteúdo Principal Dinâmico -->
-    <main id="main-content" class="main-content container">
+    <!-- Layout da Notícia Principal -->
+    <main class="container content-layout">
         
-        <!-- Listagem de Artigos -->
-        <section class="posts-grid" aria-label="Artigos recentes">
+        <!-- Coluna da Reportagem -->
+        <article class="news-article">
+            <span class="article-category">DIREITOS HUMANOS</span>
+            <h2 class="article-title">O Apagamento Institucional das Mulheres no Afeganistão em 2026</h2>
+            <p class="article-subtitle">Novos decretos restritivos sobre o Código de Separação Judicial e restrições de mobilidade aprofundam o cenário de apartheid de gênero no país.</p>
             
-            <article class="post-card">
-                <div class="post-image placeholder-1" role="img" aria-label="Representação visual de CSS moderno"></div>
-                <div class="post-body">
-                    <span class="category">Desenvolvimento</span>
-                    <h3>O que há de novo no CSS em 2026?</h3>
-                    <p>Conheça as novas propriedades que estão facilitando a criação de layouts modernos e responsivos.</p>
-                    <a href="#" class="read-more" aria-label="Ler mais sobre novidades do CSS em 2026">
-                        Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    </a>
+            <div class="meta-author">
+                <img src="https://placeholder.com" alt="Avatar do jornalista" class="author-img">
+                <div>
+                    <p class="author-name">Por Redação Especial</p>
+                    <p class="publish-time">Publicado em: 30 de julho de 2026 às 06:00</p>
                 </div>
-            </article>
+            </div>
 
-            <article class="post-card">
-                <div class="post-image placeholder-2" role="img" aria-label="Representação de inteligência artificial"></div>
-                <div class="post-body">
-                    <span class="category">Inteligência Artificial</span>
-                    <h3>Como IA está mudando o mercado</h3>
-                    <p>Entenda o impacto das novas ferramentas de automação no cotidiano dos programadores.</p>
-                    <a href="#" class="read-more" aria-label="Ler mais sobre o impacto da IA no mercado">
-                        Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    </a>
+            <div class="featured-image-container">
+                <div class="news-placeholder-img">
+                    <i class="fa-solid fa-camera shadow-icon"></i>
+                    <p>Imagem Ilustrativa: Restrições severas de locomoção em Cabul sem guardião masculino (mahram).</p>
                 </div>
-            </article>
+            </div>
 
-            <article class="post-card">
-                <div class="post-image placeholder-3" role="img" aria-label="Dicas de carreira em tecnologia"></div>
-                <div class="post-body">
-                    <span class="category">Carreira</span>
-                    <h3>Guia definitivo para juniores</h3>
-                    <p>Passos essenciais e dicas práticas para se destacar nos processos seletivos de tecnologia.</p>
-                    <a href="#" class="read-more" aria-label="Ler mais sobre o guia definitivo para juniores">
-                        Ler mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    </a>
+            <div class="article-text">
+                <p>O cerceamento das liberdades civis para a população feminina no Afeganistão atingiu níveis sem precedentes neste ano de 2026. De acordo com dados consolidados da Missão de Assistência das Nações Unidas no Afeganistão ([UNAMA](https://news.un.org/en/story/2026/07/1168039)), o regime de fato já emitiu centenas de diretrizes direcionadas exclusivamente ao controle de mulheres e meninas.</p>
+                
+                <p>Em maio, a publicação do <strong>Decreto Nº 18</strong> alterou drasticamente as regras de direito de família. A nova legislação removeu a idade mínima para casamentos e impôs severas barreiras legais para mulheres que buscam separação judicial ou divórcio, mesmo em casos de violência doméstica comprovada.</p>
+
+                <blockquote>
+                    "A nova regulamentação reduz as mulheres a um estado severo de invalidação jurídica, removendo proteções básicas contra o casamento forçado", aponta o relatório divulgado pela [Anistia Internacional](https://www.amnesty.org/en/latest/news/2026/06/afghanistan-new-code-enabling-child-marriage-compounds-dismal-situation-for-womens-and-girls-rights/).
+                </blockquote>
+
+                <h3>Impacto na Educação e Saúde</h3>
+                <p>A exclusão do ensino secundário e universitário completou mais um ciclo de impacto direto, criando o que especialistas chamam de <em>"geração perdida de talentos"</em>. Estimativas indicam que milhares de meninas adicionais são permanentemente afastadas das salas de aula a cada ano. Somado a isso, o bloqueio do trabalho de profissionais de saúde do sexo feminino gerou o fechamento de dezenas de clínicas médicas comunitárias em províncias isoladas.</p>
+            </div>
+        </article>
+
+        <!-- Barra Lateral de Dados e Dados Rápidos -->
+        <aside class="news-sidebar">
+            <div class="sidebar-box info-graphic">
+                <h3><i class="fa-solid fa-chart-pie"></i> O Impacto em Números</h3>
+                <div class="stat-item">
+                    <span class="stat-number">250k+</span>
+                    <p>Meninas permanentemente fora da trilha de ensino secundário a cada ano.</p>
                 </div>
-            </article>
+                <div class="stat-item">
+                    <span class="stat-number">Nula</span>
+                    <p>Presença feminina no gabinete ou em governos locais em todo o país.</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">79+</span>
+                    <p>Decretos emitidos focando exclusivamente restrições de gênero.</p>
+                </div>
+            </div>
 
-        </section>
-
-        <!-- Barra Lateral Informativa -->
-        <aside class="sidebar" aria-label="Informações complementares">
-            
-            <section class="sidebar-widget" aria-labelledby="about-widget-title">
-                <h3 id="about-widget-title">Sobre o Blog</h3>
-                <p>Espaço dedicado a compartilhar conhecimento sobre programação, gadgets e inovação digital.</p>
-            </section>
-            
-            <section class="sidebar-widget" aria-labelledby="newsletter-widget-title">
-                <h3 id="newsletter-widget-title">Newsletter</h3>
-                <p>Receba atualizações semanais direto no seu e-mail.</p>
-                <form class="newsletter-form" action="#" method="POST">
-                    <div class="input-group">
-                        <label for="email-input" class="sr-only">Endereço de e-mail</label>
-                        <input type="email" id="email-input" placeholder="Seu melhor e-mail" required>
-                    </div>
-                    <button type="submit">Assinar</button>
-                </form>
-            </section>
-
+            <div class="sidebar-box standard-box">
+                <h3>Últimas Atualizações</h3>
+                <ul class="recent-list">
+                    <li><a href="#"><strong>Julho:</strong> Detenções em Herat por violações de vestimenta e inspeções rígidas em comércios.</a></li>
+                    <li><a href="#"><strong>Junho:</strong> União Europeia realiza debates sobre a situação humanitária e asilo político de afegãos.</a></li>
+                    <li><a href="#"><strong>Março:</strong> Novo Código de Processo Penal enfraquece canais de denúncia de violência doméstica.</a></li>
+                </ul>
+            </div>
         </aside>
 
     </main>
 
-    <!-- Rodapé da Página -->
-    <footer class="footer">
-        <div class="container footer-wrapper">
-            <p>&copy; 2026 Meu blog tech. Todos os direitos reservados.</p>
-            <div class="social-links">
-                <a href="#" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-                <a href="#" aria-label="X (antigo Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
-            </div>
+    <!-- Rodapé Informativo -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <p>&copy; 2026 Portal Contexto. Cobertura factual com base em relatórios de agências internacionais ([UN Women](https://www.unwomen.org) e [UNAMA](https://news.un.org)).</p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
