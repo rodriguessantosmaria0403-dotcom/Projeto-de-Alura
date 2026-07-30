@@ -1,29 +1,33 @@
 /* ==========================================================================
-   1. VARIÁVEIS DE SISTEMA E TEMAS (Design Tokens)
+   1. TOKENS DE DESIGN E PALETAS DE CORES (Temas Dinâmicos)
    ========================================================================== */
 :root {
-    --bg-color: #fbfaf7;         /* Tom de papel jornal elegante */
-    --text-color: #121212;       /* Preto de alto contraste para leitura */
-    --accent-color: #900000;     /* Vermelho escuro editorial clássico */
-    --card-bg: #ffffff;          /* Fundo dos cartões em branco puro */
-    --border-color: #e3ded8;     /* Linhas sutis inspiradas em jornais antigos */
+    /* Paleta Modo Claro (Inspirada no design analógico e editorial "creme/bege") */
+    --bg-color: #fbfaf7;         
+    --text-color: #121212;       
+    --accent-color: #900000;     /* Vermelho escuro editorial profundo */
+    --card-bg: #ffffff;          
+    --border-color: #e3ded8;     
+    
+    /* Configurações Tipográficas de Alta Legibilidade */
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-sans: 'Inter', Helvetica, Arial, sans-serif;
 }
 
 [data-theme="dark"] {
-    --bg-color: #0b0b0b;         /* Fundo escuro profundo */
-    --text-color: #e2e2e2;       /* Texto claro suave para os olhos */
-    --accent-color: #ff3b3b;     /* Vermelho vibrante para modo escuro */
-    --card-bg: #141414;          /* Cartões em cinza escuro */
-    --border-color: #242424;     /* Divisores escuros */
+    /* Paleta Modo Escuro (Focado na redução de fadiga ocular em telas OLED) */
+    --bg-color: #0b0b0b;         
+    --text-color: #e2e2e2;       
+    --accent-color: #ff3b3b;     /* Vermelho mais luminoso para manter contraste no escuro */
+    --card-bg: #141414;          
+    --border-color: #242424;     
 }
 
 /* ==========================================================================
-   2. CONFIGURAÇÕES BASE E RESET
+   2. RESET DE CSS E PADRÕES DO NAVEGADOR
    ========================================================================== */
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; /* Garante que padding não quebre a largura dos elementos */
     margin: 0;
     padding: 0;
 }
@@ -32,15 +36,16 @@ body {
     font-family: var(--font-serif);
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.8;
+    line-height: 1.85; /* Linhas mais espaçadas melhoram a leitura de blocos longos */
     font-size: 1.2rem;
+    /* Transições suaves aplicadas de forma linear quando o tema muda */
     transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
                 color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding-top: 4px; /* Espaço para a barra de progresso do JS */
+    -webkit-font-smoothing: antialiased; /* Suavização extra de fontes em sistemas Mac/iOS */
 }
 
 /* ==========================================================================
-   3. CABEÇALHO (Header)
+   3. CABEÇALHO DO SITE (Header)
    ========================================================================== */
 .main-header {
     display: flex;
@@ -78,10 +83,10 @@ body {
 }
 
 /* ==========================================================================
-   4. ESTRUTURA E ELEMENTOS DA REPORTAGEM
+   4. LAYOUT DA REPORTAGEM E COMPOSIÇÃO TEXTUAL
    ========================================================================== */
 .reportage {
-    max-width: 680px;
+    max-width: 680px; /* Largura ideal padrão ouro para leitura de colunas de texto */
     margin: 4rem auto;
     padding: 0 1.5rem;
 }
@@ -126,9 +131,9 @@ h1 {
     margin-bottom: 3rem;
 }
 
-/* Imagens e Mídia */
+/* Grid de Mídia / Imagem Hero */
 .hero-image {
-    margin: 3rem 0;
+    margin: 3.5rem 0;
 }
 
 .image-placeholder {
@@ -139,11 +144,23 @@ h1 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-style: italic;
     border: 1px solid var(--border-color);
     padding: 2rem;
-    font-size: 1rem;
-    color: #777777;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.placeholder-content span {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.placeholder-content p {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #666666;
 }
 
 .caption {
@@ -154,7 +171,13 @@ h1 {
     line-height: 1.4;
 }
 
-/* Tipografia Avançada */
+/* Customização Avançada de Parágrafos */
+.paragraph {
+    margin-bottom: 1.8rem;
+    text-align: justify; /* Alinhamento elegante comum em artigos jornalísticos */
+}
+
+/* Efeito Dropcap (Letra capitular inicial gigante) */
 .dropcap {
     float: left;
     font-size: 5rem;
@@ -164,16 +187,11 @@ h1 {
     font-weight: 900;
 }
 
-.paragraph {
-    margin-bottom: 1.8rem;
-    text-align: justify;
-}
-
 h2 {
     font-family: var(--font-sans);
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 800;
-    margin: 3.5rem 0 1.2rem 0;
+    margin: 4rem 0 1.2rem 0;
     letter-spacing: -0.3px;
     text-transform: uppercase;
 }
@@ -198,7 +216,7 @@ cite {
 }
 
 /* ==========================================================================
-   5. PAINEL DE DADOS INTERATIVO
+   5. PAINEL DE DADOS MÉTROWIDE (Cards Interativos)
    ========================================================================== */
 .interactive-panel {
     background-color: var(--card-bg);
@@ -210,7 +228,7 @@ cite {
 
 .interactive-panel h3 {
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 2.5rem;
@@ -225,14 +243,19 @@ cite {
 
 .card {
     flex: 1;
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem;
     background-color: var(--bg-color);
     border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px); /* Efeito flutuante leve ao passar o mouse */
 }
 
 .card .number, .card .text-stat {
     font-family: var(--font-sans);
-    font-size: 2.4rem;
+    font-size: 3rem;
     font-weight: 800;
     color: var(--accent-color);
     display: block;
@@ -243,7 +266,7 @@ cite {
 .card .text-stat {
     font-size: 1.6rem;
     letter-spacing: 0;
-    padding-top: 0.6rem;
+    padding-top: 1.2rem;
 }
 
 .card p {
@@ -269,16 +292,17 @@ cite {
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 #alert-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     opacity: 0.95;
 }
 
 /* ==========================================================================
-   6. SISTEMA DE MODAL EDITORIAL CUSTOMIZADO
+   6. COMPONENTE DE JANELA MODAL (Com desfoque de fundo avançado)
    ========================================================================== */
 .modal-overlay {
     position: fixed;
@@ -286,17 +310,19 @@ cite {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px); /* Desfoca tudo que está abaixo da camada do modal */
+    -webkit-backdrop-filter: blur(8px); /* Suporte para navegadores Safari antigos */
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    pointer-events: none;
+    pointer-events: none; /* Bloqueia cliques enquanto invisível */
     transition: opacity 0.4s ease;
-    z-index: 3000;
+    z-index: 9999; /* Garante que fique acima da barra de progresso */
 }
 
+/* Gatilho disparado via JavaScript */
 .modal-overlay.active {
     opacity: 1;
     pointer-events: auto;
@@ -304,12 +330,12 @@ cite {
 
 .modal-box {
     background-color: var(--card-bg);
-    padding: 3rem;
-    max-width: 520px;
+    padding: 3.5rem 3rem;
+    max-width: 540px;
     width: 90%;
     border: 1px solid var(--border-color);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-    transform: translateY(30px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    transform: translateY(40px); /* Efeito físico de subida quando ativa */
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -328,7 +354,7 @@ cite {
 .modal-box p {
     font-size: 1.05rem;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: left;
 }
 
@@ -336,13 +362,14 @@ cite {
     background-color: var(--text-color);
     color: var(--bg-color);
     border: none;
-    padding: 0.8rem 2rem;
+    padding: 1rem 2rem;
     font-family: var(--font-sans);
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
     width: 100%;
+    letter-spacing: 0.5px;
     transition: opacity 0.2s ease;
 }
 
@@ -351,9 +378,9 @@ cite {
 }
 
 /* ==========================================================================
-   7. RODAPÉ E MEDIA QUERIES (Responsividade)
+   7. RODAPÉ E REGRAS DE RESPONSIVIDADE (Mobile First adaptado)
    ========================================================================== */
-footer {
+footer.main-footer {
     text-align: center;
     padding: 4rem 1.5rem;
     font-family: var(--font-sans);
@@ -363,9 +390,3 @@ footer {
     margin-top: 8rem;
 }
 
-@media (max-width: 650px) {
-    h1 { font-size: 2rem; }
-    .metrics { flex-direction: column; gap: 1.5rem; }
-    .image-placeholder { height: 260px; }
-    .modal-box { padding: 2rem; }
-}
