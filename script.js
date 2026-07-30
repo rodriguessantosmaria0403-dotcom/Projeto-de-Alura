@@ -1,53 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Inicialização da Data Editorial Local
-    const inicializarDataPortal = () => {
-        const elementoData = document.getElementById("data-atual");
-        if (elementoData) {
-            const opcoesData = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const dataHoje = new Date();
-            elementoData.textContent = dataHoje.toLocaleDateString('pt-BR', opcoesData);
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const alertBtn = document.getElementById('alert-btn');
+
+    // Funcionalidade de Alternar Modo Claro/Escuro
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.body.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            document.body.removeAttribute('data-theme');
+            themeToggle.textContent = 'Modo Escuro';
+        } else {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = 'Modo Claro';
         }
-    };
+    });
 
-    // Controle e Persistência do Tema de Leitura
-    const inicializarGerenciadorTema = () => {
-        const botaoAlternar = document.getElementById("alternar-tema");
-        if (!botaoAlternar) return;
-
-        const iconeBotao = botaoAlternar.querySelector("i");
-        const chaveArmazenamento = "portal-tema-preferido";
-
-        // Verifica estado salvo ou preferência do sistema operacional
-        const obterTemaSalvo = () => {
-            const salvo = localStorage.getItem(chaveArmazenamento);
-            if (salvo) return salvo;
-            
-            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        };
-
-        const aplicarTema = (tema) => {
-            if (tema === "dark") {
-                document.body.classList.add("tema-escuro");
-                iconeBotao.classList.replace("fa-moon", "fa-sun");
-            } else {
-                document.body.classList.remove("tema-escuro");
-                iconeBotao.classList.replace("fa-sun", "fa-moon");
-            }
-        };
-
-        // Execução inicial
-        let temaAtual = obterTemaSalvo();
-        aplicarTema(temaAtual);
-
-        // Ouvinte do evento de clique
-        botaoAlternar.addEventListener("click", () => {
-            temaAtual = document.body.classList.contains("tema-escuro") ? "light" : "dark";
-            aplicarTema(temaAtual);
-            localStorage.setItem(chaveArmazenamento, temaAtual);
-        });
-    };
-
-    // Inicialização dos módulos
-    inicializarDataPortal();
-    inicializarGerenciadorTema();
+    // Evento de Clique no Botão de Alerta Interativo
+    alertBtn.addEventListener('click', () => {
+        alert(
+            "Alerta Humanitário 2026:\n\n" +
+            "De acordo com relatórios recentes das Nações Unidas, o Afeganistão enfrenta o maior retrocesso global em direitos das mulheres deste século. " +
+            "A comunidade internacional apela por canais de apoio urgentes e proteção a ativistas locais."
+        );
+    });
 });
