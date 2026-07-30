@@ -3,113 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vozes Silenciadas | Crise de Gênero no Afeganistão</title>
+    <title>Direitos Humanos | A Situação das Mulheres no Afeganistão em 2026</title>
+    <meta name="description" content="Cobertura jornalística especial sobre os novos decretos, restrições à educação, saúde e o impacto na vida das mulheres afegãs em 2026.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
-    <!-- Barra de Alerta Urgente -->
-    <div class="breaking-news">
-        <div class="container flex-header">
-            <span class="badge">URGENTE</span>
-            <p>Relatório da OMS alerta para colapso na saúde das mulheres afegãs devido a restrições e cortes de verbas.</p>
+    <!-- Link de Acessibilidade -->
+    <a href="#conteudo-principal" class="link-atalho">Pular para o conteúdo principal</a>
+
+    <!-- Alerta de Última Hora -->
+    <div class="alerta-plantao" role="alert">
+        <div class="container container-flex">
+            <span class="etiqueta-urgente">URGENTE</span>
+            <p class="texto-alerta">Relatório da ONU aponta agravamento na crise humanitária e restrições severas de mobilidade em Cabul.</p>
         </div>
     </div>
 
-    <!-- Cabeçalho de Jornal -->
-    <header class="main-header">
-        <div class="container header-container">
-            <div class="date-info" id="current-date">30 de Julho de 2026</div>
-            <h1 class="portal-logo">PORTAL<span>CONTEXTO</span></h1>
-            <div class="social-share">
-                <button id="dark-mode-toggle" aria-label="Mudar modo de leitura"><i class="fa-solid fa-moon"></i></button>
+    <!-- Cabeçalho Principal Estilo Jornal -->
+    <header class="cabecalho-jornal">
+        <div class="container topo-wrapper">
+            <div class="data-jornal" id="data-atual"><!-- Gerada via JS --></div>
+            <h1 class="logo-jornal">DIÁRIO<span>CONTEXTO</span></h1>
+            <div class="controles-topo">
+                <button id="alternar-tema" aria-label="Alternar modo de leitura escuro ou claro">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
-        <nav class="main-nav">
+        <nav class="menu-jornal" aria-label="Navegação das editorias">
             <div class="container">
                 <ul>
-                    <li><a href="#" class="active">Especial Afeganistão</a></li>
-                    <li><a href="#">Direitos Humanos</a></li>
-                    <li><a href="#">Relatórios ONU</a></li>
-                    <li><a href="#">Análises</a></li>
+                    <li><a href="#" class="editoria-ativa">Especial Afeganistão</a></li>
+                    <li><a href="#">Direitos Internacionais</a></li>
+                    <li><a href="#">Relatórios Globais</a></li>
+                    <li><a href="#">Análises & Opinião</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Layout da Notícia Principal -->
-    <main class="container content-layout">
+    <!-- Corpo do Portal -->
+    <main id="conteudo-principal" class="container grid-portal">
         
-        <!-- Coluna da Reportagem -->
-        <article class="news-article">
-            <span class="article-category">DIREITOS HUMANOS</span>
-            <h2 class="article-title">O Apagamento Institucional das Mulheres no Afeganistão em 2026</h2>
-            <p class="article-subtitle">Novos decretos restritivos sobre o Código de Separação Judicial e restrições de mobilidade aprofundam o cenário de apartheid de gênero no país.</p>
-            
-            <div class="meta-author">
-                <img src="https://placeholder.com" alt="Avatar do jornalista" class="author-img">
-                <div>
-                    <p class="author-name">Por Redação Especial</p>
-                    <p class="publish-time">Publicado em: 30 de julho de 2026 às 06:00</p>
-                </div>
-            </div>
-
-            <div class="featured-image-container">
-                <div class="news-placeholder-img">
-                    <i class="fa-solid fa-camera shadow-icon"></i>
-                    <p>Imagem Ilustrativa: Restrições severas de locomoção em Cabul sem guardião masculino (mahram).</p>
-                </div>
-            </div>
-
-            <div class="article-text">
-                <p>O cerceamento das liberdades civis para a população feminina no Afeganistão atingiu níveis sem precedentes neste ano de 2026. De acordo com dados consolidados da Missão de Assistência das Nações Unidas no Afeganistão ([UNAMA](https://news.un.org/en/story/2026/07/1168039)), o regime de fato já emitiu centenas de diretrizes direcionadas exclusivamente ao controle de mulheres e meninas.</p>
+        <!-- Área da Matéria Principal -->
+        <article class="materia-container">
+            <header class="materia-cabecalho">
+                <span class="materia-chapeu">CRISE HUMANITÁRIA</span>
+                <h2 class="materia-titulo">O Apagamento Institucional das Mulheres no Afeganistão em 2026</h2>
+                <p class="materia-linha-fina">Novos decretos restritivos sobre o código familiar e barreiras severas de mobilidade consolidam cenário de segregação extrema.</p>
                 
-                <p>Em maio, a publicação do <strong>Decreto Nº 18</strong> alterou drasticamente as regras de direito de família. A nova legislação removeu a idade mínima para casamentos e impôs severas barreiras legais para mulheres que buscam separação judicial ou divórcio, mesmo em casos de violência doméstica comprovada.</p>
+                <div class="materia-autor-dados">
+                    <div class="autor-avatar"><i class="fa-solid fa-user-feather"></i></div>
+                    <div class="autor-info">
+                        <p class="nome-autor">Por Redação Especializada</p>
+                        <p class="data-publicacao">Atualizado em 30 de julho de 2026 às 07:30</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Espaço da Imagem de Destaque -->
+            <figure class="materia-midia">
+                <div class="imagem-provisoria" role="img" aria-label="Ilustração estilizada de uma silhueta feminina diante de uma janela fechada, representando o isolamento social.">
+                    <i class="fa-solid fa-camera icon-midia"></i>
+                    <figcaption>Foto: Agência Internacional / Restrições cotidianas impedem o trânsito livre de mulheres sem acompanhante masculino (mahram) em espaços públicos.</figcaption>
+                </div>
+            </figure>
+
+            <!-- Texto da Reportagem -->
+            <div class="materia-corpo">
+                <p>O cerceamento das liberdades civis para a população feminina no Afeganistão atingiu patamares críticos neste ano de 2026. De acordo com o monitoramento contínuo efetuado pela Missão de Assistência das Nações Unidas no Afeganistão (<abbr title="Nações Unidas">ONU</abbr> / UNAMA), novas diretrizes foram convertidas em leis formais de controle social nos últimos meses.</p>
+                
+                <p>Documentos recentes apontam que as restrições ao direito de família foram aprofundadas, flexibilizando idades mínimas matrimoniais e anulando salvaguardas contra uniões forçadas. Canais formais de amparo jurídico e delegacias especializadas no acolhimento a vítimas de violência doméstica foram inteiramente desmantelados nas principais províncias.</p>
 
                 <blockquote>
-                    "A nova regulamentação reduz as mulheres a um estado severo de invalidação jurídica, removendo proteções básicas contra o casamento forçado", aponta o relatório divulgado pela [Anistia Internacional](https://www.amnesty.org/en/latest/news/2026/06/afghanistan-new-code-enabling-child-marriage-compounds-dismal-situation-for-womens-and-girls-rights/).
+                    "A ausência de representação legal e o bloqueio de agências de proteção deixam milhões de meninas e mulheres expostas a uma invalidação jurídica absoluta perante tribunais locais", aponta o relatório consolidado de direitos humanos.
                 </blockquote>
 
-                <h3>Impacto na Educação e Saúde</h3>
-                <p>A exclusão do ensino secundário e universitário completou mais um ciclo de impacto direto, criando o que especialistas chamam de <em>"geração perdida de talentos"</em>. Estimativas indicam que milhares de meninas adicionais são permanentemente afastadas das salas de aula a cada ano. Somado a isso, o bloqueio do trabalho de profissionais de saúde do sexo feminino gerou o fechamento de dezenas de clínicas médicas comunitárias em províncias isoladas.</p>
+                <h3>Restrições ao Ensino e Serviços Básicos</h3>
+                <p>A exclusão continuada das salas de aula do ensino secundário e superior completou um ciclo devastador para a formação profissional do país. Além do impacto educacional direto, a proibição do exercício laboral para profissionais de saúde e assistência social do sexo feminino resultou na suspensão de atendimentos em clínicas comunitárias periféricas, isolando comunidades inteiras que dependiam exclusivamente desse atendimento.</p>
             </div>
         </article>
 
-        <!-- Barra Lateral de Dados e Dados Rápidos -->
-        <aside class="news-sidebar">
-            <div class="sidebar-box info-graphic">
-                <h3><i class="fa-solid fa-chart-pie"></i> O Impacto em Números</h3>
-                <div class="stat-item">
-                    <span class="stat-number">250k+</span>
-                    <p>Meninas permanentemente fora da trilha de ensino secundário a cada ano.</p>
+        <!-- Barra Lateral de Dados e Atualizações -->
+        <aside class="barra-lateral" aria-label="Informações de suporte e dados rápidos">
+            
+            <section class="widget-lateral painel-grafico">
+                <h3><i class="fa-solid fa-chart-simple"></i> Indicadores de 2026</h3>
+                <div class="bloco-indicador">
+                    <span class="num-indicador">0%</span>
+                    <p>Participação feminina na governança central ou em pastas ministeriais de fato.</p>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">Nula</span>
-                    <p>Presença feminina no gabinete ou em governos locais em todo o país.</p>
+                <div class="bloco-indicador">
+                    <span class="num-indicador">75+</span>
+                    <p>Diretrizes institucionais publicadas voltadas à limitação de deslocamento e vestimenta.</p>
                 </div>
-                <div class="stat-item">
-                    <span class="stat-number">79+</span>
-                    <p>Decretos emitidos focando exclusivamente restrições de gênero.</p>
+                <div class="bloco-indicador">
+                    <span class="num-indicador">Extrema</span>
+                    <p>Classificação de vulnerabilidade social emitida pelas principais agências de ajuda humanitária.</p>
                 </div>
-            </div>
+            </section>
 
-            <div class="sidebar-box standard-box">
-                <h3>Últimas Atualizações</h3>
-                <ul class="recent-list">
-                    <li><a href="#"><strong>Julho:</strong> Detenções em Herat por violações de vestimenta e inspeções rígidas em comércios.</a></li>
-                    <li><a href="#"><strong>Junho:</strong> União Europeia realiza debates sobre a situação humanitária e asilo político de afegãos.</a></li>
-                    <li><a href="#"><strong>Março:</strong> Novo Código de Processo Penal enfraquece canais de denúncia de violência doméstica.</a></li>
+            <section class="widget-lateral painel-lista">
+                <h3>Linha do Tempo Recente</h3>
+                <ul class="lista-atualizacoes">
+                    <li>
+                        <span class="data-lista">Julho</span>
+                        <a href="#">Inspeções severas em centros urbanos aumentam exigências sobre trajes permitidos.</a>
+                    </li>
+                    <li>
+                        <span class="data-lista">Junho</span>
+                        <a href="#">Comunidade internacional debate o congelamento de fundos e critérios para ajuda médica.</a>
+                    </li>
+                    <li>
+                        <span class="data-lista">Maio</span>
+                        <a href="#">Novos regulamentos reduzem a capacidade operacional de ONGs lideradas por mulheres.</a>
+                    </li>
                 </ul>
-            </div>
-        </aside>
+            </section>
 
+        </aside>
     </main>
 
-    <!-- Rodapé Informativo -->
-    <footer class="main-footer">
-        <div class="container footer-grid">
-            <p>&copy; 2026 Portal Contexto. Cobertura factual com base em relatórios de agências internacionais ([UN Women](https://www.unwomen.org) e [UNAMA](https://news.un.org)).</p>
+    <!-- Rodapé -->
+    <footer class="rodape-jornal">
+        <div class="container rodape-flex">
+            <p>&copy; 2026 Diário Contexto. Compilação de dados públicos embasada em informativos de direitos humanos e monitoramento de agências multilaterais.</p>
+            <div class="redes-sociais">
+                <a href="#" aria-label="Acompanhar via X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Acompanhar via LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
         </div>
     </footer>
 
